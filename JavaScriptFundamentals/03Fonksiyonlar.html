@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <input type="text" placeholder="Meyve Gir" id="txtMeyve" />
+    <input type="button" value="Ekle" onclick="meyveekle()" />
+    <br/>
+    <div id="divmesaj"></div><br/>
+    <input type="button" value="Toplam Adet" onclick="topla()"/>
+    <label id="lblToplam"></label>
+    <input type="button" value="Temizle" onclick="temizle()"/>
+    <script>
+        var meyvesepeti = [];
+        function meyveekle() {
+            var meyveadi = document.getElementById("txtMeyve").value.trim();
+            if (meyveadi == null || meyveadi.length == 0) {
+                alert("Boş geçmeyelim.")
+                return;
+            }
+            var varmi = false;
+            var yeniMeyve = { isim: meyveadi };
+            if (meyvesepeti === 0)
+            {
+                yeniMeyve.id = 1;
+                yeniMeyve.adet = 1;
+                meyvesepeti.push(yeniMeyve);
+            }
+            else
+            {
+                for (var i = 0; i < meyvesepeti.length; i++)
+                {
+                    if (meyvesepeti[i].isim.toLowerCase() === meyveadi.toLowerCase())
+                    {
+                        varmi = true;
+                        meyvesepeti[i].adet++;
+                        break;
+                    }
+                }
+            }
+            if (!varmi)
+            {
+                yeniMeyve.id = meyvesepeti.length + 1;
+                yeniMeyve.adet = 1;
+                meyvesepeti.push(yeniMeyve);
+            }
+            meyveDoldur();
+        }
+        function meyveDoldur() {
+            console.log(meyvesepeti)
+            var div = document.getElementById("divmesaj");
+            div.innerHTML = "";
+            var ol = document.createElement("ol");           
+            for (var i = 0; i < meyvesepeti.length; i++) {
+                if (meyvesepeti[i].adet <= 0) {
+                    continue;
+                }
+                var li = document.createElement("li");
+                li.innerHTML = meyvesepeti[i].isim + " <b>" + meyvesepeti[i].adet + "</b>";
+                var btnArttir = document.createElement("input");
+                btnArttir.setAttribute("value", "+");
+                btnArttir.setAttribute("type", "button");
+                btnArttir.setAttribute("id", meyvesepeti[i].id)
+                btnArttir.addEventListener("click", arttir)
+                var btnAzalt = document.createElement("input");
+                btnAzalt.setAttribute("value", "-");
+                btnAzalt.setAttribute("type", "button");
+                btnAzalt.setAttribute("id", meyvesepeti[i].id)
+                btnAzalt.addEventListener("click", azalt)
+                var btnCikart = document.createElement("input");
+                btnCikart.setAttribute("value", "Çıkart");
+                btnCikart.setAttribute("type", "button");
+                btnCikart.setAttribute("id", meyvesepeti[i].id)
+                btnCikart.addEventListener("click", cikart)
+                li.appendChild(btnArttir);
+                li.appendChild(btnAzalt);
+                li.appendChild(btnCikart);
+                ol.appendChild(li);
+            }
+            div.appendChild(ol);
+        }
+        function topla() {
+            var toplam = 0;
+            for (var i = 0; i < meyvesepeti.length; i++) {
+                toplam += meyvesepeti[i].adet;
+            }
+            document.getElementById("lblToplam").innerText = toplam;
+        }
+        function temizle() {
+            meyvesepeti = [];
+            document.getElementById("lblToplam").innerText = "";
+            document.getElementById("txtMeyve").value = "";
+            meyveDoldur();
+        }
+        function arttir(sender){
+            for (var i = 0; i < meyvesepeti.length; i++) {
+                if (meyvesepeti[i].id == sender.target.id) {
+                    meyvesepeti[i].adet++;
+                    break;
+                }
+            }
+            meyveDoldur();
+        }
+        function azalt(sender) {
+            for (var i = 0; i < meyvesepeti.length; i++) {
+                if (meyvesepeti[i].id == sender.target.id) {
+                    meyvesepeti[i].adet--;
+                    break;
+                }
+            }
+            meyveDoldur();
+        }
+        function cikart(sender) {
+            for (var i = 0; i < meyvesepeti.length; i++) {
+                if (meyvesepeti[i].id == sender.target.id) {
+                    meyvesepeti[i].adet = 0;
+                    break;
+                }
+            }
+            meyveDoldur();
+        }
+    </script>
+</body>
+</html>

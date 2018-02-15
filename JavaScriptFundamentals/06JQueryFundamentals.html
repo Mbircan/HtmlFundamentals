@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script>
+        //$(document).ready(function () {
+        //    alert("yüklendi");
+
+        //    $("#yukleyici").click(function () {
+        //        alert("tıklandı");
+        //    });
+        //});
+        $(function () {
+
+            $(".renk").change(function(){
+                var r = $("#r").val();
+                var g = $("#g").val();
+                var b = $("#b").val();
+                var renkkodu = "rgb(" + r + "," + g + "," + b + ")";
+                $("#panel").css({
+                    "background-color": renkkodu,
+                    "width": "200px",
+                    "height": "200px",
+                    "text-align": "center"
+                });
+                var color = $("#color").val();
+                $("#panel").html(renkkodu)
+                $("#panel").css("border",$('#border').val()+"px solid "+color);
+                $("#panel").css("border-radius", $("#radius").val() + "px");
+            });
+
+        });
+        
+    </script>
+</head>
+<body>
+    <input id="r" class="renk" type="range" max="255" min="0" /><br/>
+    <input id="g" class="renk" type="range" max="255" min="0" /><br/>
+    <input id="b" class="renk" type="range" max="255" min="0" /><br/>
+    <input id="border" class="renk" type="range" max="10" min="0" /><br/>
+    <input id="radius" class="renk" type="range" max="100" min="0" /><br/>
+    <input id="color" class="renk" type="color" max="10" min="0" />
+
+    <div id="panel"></div>
+</body>
+</html>

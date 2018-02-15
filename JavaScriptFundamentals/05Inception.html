@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        .palet{
+            width:200px;
+            height:200px;
+            float:left;
+            margin:10px;
+            transition:all .4s ease;
+            border-radius:100px;
+        }
+        .palet:hover{
+            transform:scale(1.04);
+        }
+
+    </style>
+    <script>
+        function divYap() {
+            var div = document.createElement("div");
+            div.setAttribute("class", "palet");
+            var divPanel = document.getElementById("divPanel");
+            div.style.backgroundColor = randomRGB();
+            div.setAttribute("onclick", "icineekle(this)");
+            divPanel.appendChild(div);                    
+        }
+        function icineekle(item) {
+            var width = item.offsetWidth;
+            var height = item.offsetHeight;
+            var yenidiv = document.createElement("div");
+            yenidiv.setAttribute("style", "margin:5px;float:left;height:" + (Number(height) - 10) + "px;width:" + (Number(width) - 10) + "px;background-color:" + randomRGB() + ";border-radius:"+Number(height)/2+"px");
+            yenidiv.style.backgroundColor = randomRGB();            
+            yenidiv.setAttribute("onclick", "icineekle(this)");
+            item.setAttribute("onclick", null);
+            item.appendChild(yenidiv);
+        }
+        function randomRGB() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return "rgb(" + r + "," + g + "," + b + ")";
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Ekle" onclick="divYap()" />
+    <div id="divPanel"></div>
+</body>
+</html>

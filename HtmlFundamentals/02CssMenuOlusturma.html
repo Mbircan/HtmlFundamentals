@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <title>HTML5 Semantik Elemanlar</title>
+    <link href="Style/menu.css" rel="stylesheet" />
+</head>
+<body>
+    <header>Kişisel Sitem</header>
+    <nav>
+        <ul class="navigasyon">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="#">Hakkımızda</a></li>
+            <li>
+                <a href="#">Projeler</a>
+                <ul class="alt-menu">
+                    <li><a href="#">Kişisel Projeler</a></li>
+                    <li><a href="#">Özel Projeler</a></li>
+                </ul>
+            </li>
+            <li><a href="#">İletişim</a></li>
+        </ul>
+    </nav>
+    <article>
+        <section>
+            Sapien elit in malesuada semper mi, id sollicitudin urna fermentum.
+        </section>
+        <section>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec elit tortor. Vestibulum in ultricies dui, eget condimentum arcu. Etiam vitae tortor purus. Nam id magna id lacus venenatis scelerisque. Duis nec sodales sem. Quisque nulla odio, cursus eget fermentum id, bibendum vel odio. Sed eu ex vulputate, facilisis nibh id, eleifend leo. Donec ipsum sem, sodales in nulla a, cursus cursus ex. Donec quis iaculis leo, et imperdiet ante. Curabitur eleifend lectus at ligula viverra sollicitudin. Aenean vitae vestibulum tellus. Quisque quis ante mauris.
+            <form action="#" method="post">
+                <label>Ad</label>
+                <input type="text" placeholder="Lütfen adınızı giriniz." maxlength="15" required /><br/>
+                <label>Soyad</label>
+                <input type="text" placeholder="Lütfen soyadınızı giriniz." maxlength="15" required /><br />
+                <input type="radio" name="cinsiyet" value="Erkek" />Erkek
+                <input type="radio" name="cinsiyet" value="Kadın" />Kadın<br />
+                <input type="text" value="Burayı değiştiremezsiniz." disabled/><br />
+                <input type="text" value="Burayı değiştiremezsiniz." readonly /><br />
+                <select>
+                    <option>İstanbul</option>
+                    <option>Ankara</option>
+                    <option>Sinop</option>
+                </select>
+                <br/>
+                <label>Çalışmak istediğiniz konum</label><br/>
+                <input type="checkbox"/>Front-End<br/>
+                <input type="checkbox"/>Back-End<br/>
+                <textarea rows="10" cols="30" maxlength="100"></textarea><br/>
+                <input type="email" placeholder="E-mail adresinizi giriniz" required /><br/>
+                <input type="date" placeholder="Doğum Tarihi" />
+                <input type="month" />
+                <input type="week" />
+                <input type="time" /><br/>
+                <input type="range" id="a" min="0" max="100" name="a" value="50" />
+                <input type="number" id="b" min="0" max="100" name="b" step="10" value="50" /><br/>
+                <input type="search" /><br />
+                <input type="password" placeholder="Şifrenizi giriniz" required /><br />
+
+
+                <input type="submit" value="Gönder"/>
+                <input type="reset" value="Temizle" />
+                <input type="button" value="Standart Buton" onclick="alert('Araya çıkabiliriz.')"/>
+            </form>
+        </section>
+    </article>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Konum ve Google Maps</title>
+	<meta charset="utf-8" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAphvn9bJK-l647uamV4RXD4rDiBAyRqXU"
+            async defer></script>
+    <style>
+        #map{
+            background-color:coral;
+            height:400px;
+            margin:20px;
+        }
+        #bilgi{
+            background-color: azure;
+            color: crimson;
+        }
+        #panel{
+            height:400px;
+            margin:20px;
+            background-color:teal;
+            overflow-y:auto;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnkonum">Konum Bul</button>
+    <div id="bilgi"></div>
+    <div id="map"></div>
+    <div id="panel"></div>
+
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/kadastro.js"></script>
+</body>
+</html>

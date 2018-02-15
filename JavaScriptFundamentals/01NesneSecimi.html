@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        function tikla(a, b, c) {
+            if (a == 0) {
+                console.log("sıfır girme")              
+                return;
+            }
+            console.log(kareAl(a) + b + c);
+        }
+        function kareAl(k) {
+            return k * k;
+        }
+        function gonder() {
+            var mesaj = document.getElementById("txtmesaj").value;
+            console.log("Merhaba " + mesaj);
+            document.getElementById("lblmesaj").innerHTML = "<b>Merhaba " + mesaj + "</b>";
+            console.log(this);//this=sender;
+        }
+        function yazdir(txt) {
+            document.getElementById("lblmesaj").innerText = txt.value;
+        }
+    </script>
+</head>
+<body>
+    DOM - Document Object Model
+    <input type="button" value="Tıkla" onclick="tikla(0,5,'kamil')"/><br/>
+    <input type="text" placeholder="Mesajınızı giriniz." id="txtmesaj" />
+    <input type="button" value="Gönder" onclick="gonder()" /><br/><br />
+    <input type="text" onkeyup="yazdir(this)" /><br/>
+    <label id="lblmesaj"></label>
+</body>
+</html>

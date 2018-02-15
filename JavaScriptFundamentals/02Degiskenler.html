@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        var a = 5;
+        a = "kamil";
+        a = 'fıdıl';
+        a = true;
+        a = new Date();
+        a = 1.56;
+        a = new Object();
+        a.ad = "kamil";
+        a.soyad = "Fıdıl";
+        a = { ad: "kamil", soyad: "kozalak" };
+        a.tc = 1234567890;
+        a = [1, 2, 3];
+        a[1] = 20;
+        a[2] = "kamil";
+        a[3] = true;
+        a[10] = 3.14;
+        a[11] = { id: 1, fiyat: 95.10, ad: "Angus" };
+        a[6] = [1, 2, 3, { a: 6, b: false }];
+        a[6][3].c = new Date();
+        a = null;
+        a = function (a) { return a - a * a };
+        var car = {
+            name:"Nissan",
+            model: "Skyline",
+            color: "gray",
+            start: function () { return this.name+" çalıştı" },
+            stop: function(){return this.name+" durdu"}
+        }
+        a = function (x, y) {
+            if (x === y) { return "eşit" }
+            else{return "eşit değil"}
+        }
+        a = Math.sin(Math.PI / 2);
+        a = Math.floor(Math.random() * 10) + 1;
+        a = parseInt(3.99);
+        a = parseFloat(9);
+        for (var i = 0; i < 10; i++) {
+            console.log(Math.floor(Math.random() * 10) + 1)
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

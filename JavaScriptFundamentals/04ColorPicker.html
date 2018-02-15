@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #palet{
+            height:200px;
+            background-color:royalblue;
+            padding-top:100px;
+            text-align:center;
+            border-radius:20px;
+            border:2px solid tomato;
+        }
+
+    </style>
+    <script>
+        function degeriYaz(id) {
+            var red = document.getElementById("r").value;
+            var green = document.getElementById("g").value;
+            var blue = document.getElementById("b").value;
+            if (id === "r")
+                document.getElementById("lblRed").innerHTML = red;
+            else if (id === "g")
+                document.getElementById("lblGreen").innerHTML = green;
+            else if (id === "b")
+                document.getElementById("lblBlue").innerHTML = blue;
+            var renk = "rgb(" + red + "," + green + "," + blue + ")";
+            var zitrenk = "rgb(" +(255- red) + "," + (255-green) + "," + (255-blue) + ")";
+            document.getElementById("palet").style.backgroundColor = renk;
+            document.getElementById("palet").innerHTML = renk + "<br/>#" + fullColorHex(red, green, blue);
+            document.getElementById("palet").style.color = zitrenk;
+            
+        }
+        function rgbToHex(rgb) {
+            var hex = Number(rgb).toString(16);
+            if (hex.length < 2) {
+                hex = "0" + hex;
+            }
+            return hex;
+        }
+        function fullColorHex (r, g, b) {
+            var red = rgbToHex(r);
+            var green = rgbToHex(g);
+            var blue = rgbToHex(b);
+            return red + green + blue;
+        };
+
+    </script>
+</head>
+<body>
+    <input id="r" type="range" max="255" min="0" onchange="degeriYaz(id)"/><label id="lblRed">0</label><br/>
+    <input id="g" type="range" max="255" min="0" onchange="degeriYaz(id)" /><label id="lblGreen">0</label><br/>
+    <input id="b" type="range" max="255" min="0" onchange="degeriYaz(id)" /><label id="lblBlue">0</label><br/>
+    <div id="palet"></div>
+
+</body>
+</html>
